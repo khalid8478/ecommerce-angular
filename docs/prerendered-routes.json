@@ -1,0 +1,14 @@
+{
+  "routes": [
+    "/",
+    "/account/orders",
+    "/admin",
+    "/admin/create-product",
+    "/admin/customers",
+    "/admin/orders",
+    "/admin/products",
+    "/cart",
+    "/checkout",
+    "/payment-success"
+  ]
+}
