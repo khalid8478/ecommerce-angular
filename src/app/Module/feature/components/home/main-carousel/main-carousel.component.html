@@ -1,0 +1,30 @@
+<div class="relative">
+  <div class="carousel-container overflow-x-hidden">
+    <div class="carousel" [style.transform]="'translateX(-' + (currentSlide * 100) + '%)'">
+      <ng-container *ngFor="let item of carouselData; let i = index">
+        <a class="carousel-item">
+          <img [src]="item.imageSrc" [alt]="item.imageAlt">
+        </a>
+      </ng-container>
+    </div>
+  </div>
+
+  <!-- Optional: Carousel navigation buttons -->
+  <button class="prev" (click)="prevSlide()">&#10094;</button>
+  <button class="next" (click)="nextSlide()">&#10095;</button>
+</div>
+
+<!-- <button id="nextButton" (click)="nextSlide()">
+  next
+</button> -->
+<!-- <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Your code here
+   
+    setInterval(()=>{
+      document.getElementById('nextButton').click()
+      console.log('ok');
+      
+    },2000)
+  });
+</script> -->

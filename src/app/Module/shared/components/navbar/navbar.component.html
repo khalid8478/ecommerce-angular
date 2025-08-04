@@ -1,0 +1,62 @@
+<div class="fixed top-0 z-50 right-0 left-0 bg-[#69f0ae] text-gray-900 ">
+  <div class=" flex px-5 lg:px-20px h-16 flex items-center justify-between w-full px-4">
+
+    <div class="flex items-center">
+      <div class="mr-5">
+        <img class="w-8" src="https://graphicdesigneye.com/images/clothing-logo-design-service.png"
+          alt="Code With Khalid">
+      </div>
+
+      <div class="hidden sm:flex">
+        <div class="flex items-center space-x-4">
+          <a routerLink="/" class="text-gray-800 font-semibold text-lg">
+            Shop With Khalid
+          </a>
+
+          <div>
+            <button class="open-button" (click)="openNavbarContent('men')" mat-button>Men</button>
+          </div>
+
+          <div>
+            <button class="open-button" (click)="openNavbarContent('women')" mat-button>Women</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="flex items-center">
+
+      <button (click)="navigateTo('cart')" mat-icon-button>
+        <mat-icon>shopping_cart</mat-icon>
+      </button>
+      <button (click)="handleOpenLoginModal()" *ngIf="!userProfile" mat-raised-button type="" color="accent">
+        LOGIN
+      </button>
+
+      <div *ngIf = "userProfile" class="relative ml-3 flex items-center">
+        <div class="flex items-center space-x-5">
+          <span class="font-bold text-lg">{{userProfile.firstName}}</span>
+
+          <button mat-button [matMenuTriggerFor]="profileMenu">
+            <img class="h-7 w-6" src="https://cdn.pixabay.com/photo/2017/01/31/21/23/avatar-2027366_1280.png" alt="">
+          </button>
+
+          <mat-menu #profileMenu="matMenu">
+            <button (click)="navigateTo('account/orders')" mat-menu-item>Orders</button>
+            <button mat-menu-item>Profile</button>
+            <button mat-menu-item (click)="handlerLogout()">LogOut</button>
+          </mat-menu>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div *ngIf="isNavbarContentOpen" class="absolute right-0 lest-0 modal-container absolute top-full left-0 w-full bg-white shadow-lg z-40">
+
+    <app-nav-content [selectedSection]="currentSection"></app-nav-content>
+
+  </div>
+</div>
